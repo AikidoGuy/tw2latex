@@ -8,9 +8,9 @@ for it. Please be aware that it is a work in progress.
 
 Usage
 -----
-$ vi tw2latex.py           # and modify settings near top of file to suit your needs
-$ chmod 700 tw2latex.py
-$ ./tw2latex.py            # to get a list of all options
+- $ vi tw2latex.py           # and modify settings near top of file to suit your needs
+- $ chmod 700 tw2latex.py
+- $ ./tw2latex.py            # to get a list of all options
 
 Further information and discussion is available at: http://taskwarrior.org/boards/6/topics/2084
 

@@ -1,0 +1,95 @@
+\documentclass[12pt]{article}
+\usepackage{taskwarrior}
+\usepackage{chronology}
+
+\begin{document}
+
+\TWstandardPageBox{6cm}{6.5cm}{\paperwidth-9cm}{white}{%
+\setlength{\tabcolsep}{0.5mm}    % specify a more compact table column separator
+\noindent\resizebox{\paperwidth-9cm}{!}{%
+\begin{tabularx}{\paperwidth-9cm}{ccX}
+\TWhighlightMedium{1}{c}{ID}  & \TWhighlightMedium{1}{c}{Due}  & \TWhighlightMedium{1}{c}{Description} \tabularnewline
+\TWmediumText{50} &  & \TWmediumText{xxxxxxxx xxx xxxxxxxxxx xxxx xxxxxxxxxx} \tabularnewline 
+\TWmediumText{58} &  & \TWmediumText{xx x xxxx xx xxxx xxxxxxxx xx xxxxxxx} \tabularnewline 
+\TWmediumText{83} &  & \TWmediumText{xxxxxxxxx xxxxxxxxxxxxx xx x} \tabularnewline 
+\TWmediumText{200} &  & \TWmediumText{xxxxxxxxxxxx xxxxxxx xxxxxx xxxxxxx xx xxxxxxxxxx} \tabularnewline 
+\TWmediumText{244} & \TWmediumText{2012/08/23 16:00} & \TWmediumText{xxxxx x xx xxxxxxxxx} \tabularnewline 
+\TWmediumText{245} & \TWmediumText{2012/08/27 16:00} & \TWmediumText{xxxxx xxxxxxxx xxx xxxx} \tabularnewline 
+\TWmediumText{246} & \TWmediumText{2012/09/28 16:00} & \TWmediumText{xxxxx xxxxxxxx xxx xxxxxxxxx} \tabularnewline 
+\TWmediumText{281} &  & \TWmediumText{xxxxxx xxxxxxxx xxxx xxxxxxxxx} \tabularnewline 
+\TWhighlightMedium{3}{c}{
+8 tasks
+} \tabularnewline
+\end{tabularx}%
+}%resizebox
+}% end box location and/or rotation
+\TWstandardPageBox{0cm}{6.5cm}{5cm}{white}{%
+\setlength{\tabcolsep}{0.5mm}    % specify a more compact table column separator
+\noindent\begin{tabular}{lrccccccc}
+\TWhighlightMedium{1}{c}{} & \TWhighlightMedium{1}{c}{\#} & \TWhighlightMedium{1}{c}{M} & \TWhighlightMedium{1}{c}{T} & \TWhighlightMedium{1}{c}{W} & \TWhighlightMedium{1}{c}{T} & \TWhighlightMedium{1}{c}{F} & \TWhighlightLight{1}{c}{S} & \TWhighlightLight{1}{c}{S} \\
+%
+\TWdarkText{Aug}  & \TWlightText{33} & \TWdarkText{13} & \TWdarkText{14} & \TWdarkText{15} & \TWdarkText{16} & \TWdarkText{17} & \TWlightText{18} & \TWlightText{19}\\
+\TWdarkText{'12}  & \TWlightText{34} & \TWdarkText{20} & \TWdarkText{21} & \TWdarkText{22} & \TWdarkText{23} & \TWdarkText{24} & \TWlightText{25} & \TWlightText{26}\\ \cline{9-9}
+\TWdarkText{Sep}  & \TWlightText{35} & \TWdarkText{27} & \TWdarkText{28} & \TWdarkText{29} & \TWdarkText{30} & \TWdarkText{31} & \TWhighlightDark{1}{c}{1} & \TWlightText{2}\\ \cline{3-7}
+ & \TWlightText{36} & \TWdarkText{3} & \TWdarkText{4} & \TWdarkText{5} & \TWdarkText{6} & \TWdarkText{7} & \TWlightText{8} & \TWlightText{9}\\
+ & \TWlightText{37} & \TWdarkText{10} & \TWdarkText{11} & \TWdarkText{12} & \TWdarkText{13} & \TWdarkText{14} & \TWlightText{15} & \TWlightText{16}\\
+ & \TWlightText{38} & \TWdarkText{17} & \TWdarkText{18} & \TWdarkText{19} & \TWdarkText{20} & \TWdarkText{21} & \TWlightText{22} & \TWlightText{23}\\
+ & \TWlightText{39} & \TWdarkText{24} & \TWdarkText{25} & \TWdarkText{26} & \TWdarkText{27} & \TWdarkText{28} & \TWlightText{29} & \TWlightText{30}\\ \cline{4-9}
+\TWdarkText{Oct}  & \TWlightText{40} & \TWhighlightDark{1}{c}{1} & \TWdarkText{2} & \TWdarkText{3} & \TWdarkText{4} & \TWdarkText{5} & \TWlightText{6} & \TWlightText{7}\\
+ & \TWlightText{41} & \TWdarkText{8} & \TWdarkText{9} & \TWdarkText{10} & \TWdarkText{11} & \TWdarkText{12} & \TWlightText{13} & \TWlightText{14}\\
+ & \TWlightText{42} & \TWdarkText{15} & \TWdarkText{16} & \TWdarkText{17} & \TWdarkText{18} & \TWdarkText{19} & \TWlightText{20} & \TWlightText{21}\\
+ & \TWlightText{43} & \TWdarkText{22} & \TWdarkText{23} & \TWdarkText{24} & \TWdarkText{25} & \TWdarkText{26} & \TWlightText{27} & \TWlightText{28}\\ \cline{7-9}
+\TWdarkText{Nov}  & \TWlightText{44} & \TWdarkText{29} & \TWdarkText{30} & \TWdarkText{31} & \TWhighlightDark{1}{c}{1} & \TWdarkText{2} & \TWlightText{3} & \TWlightText{4}\\ \cline{3-5}
+ & \TWlightText{45} & \TWdarkText{5} & \TWdarkText{6} & \TWdarkText{7} & \TWdarkText{8} & \TWdarkText{9} & \TWlightText{10} & \TWlightText{11}\\
+ & \TWlightText{46} & \TWdarkText{12} & \TWdarkText{13} & \TWdarkText{14} & \TWdarkText{15} & \TWdarkText{16} & \TWlightText{17} & \TWlightText{18}\\
+ & \TWlightText{47} & \TWdarkText{19} & \TWdarkText{20} & \TWdarkText{21} & \TWdarkText{22} & \TWdarkText{23} & \TWlightText{24} & \TWlightText{25}\\ \cline{9-9}
+\TWdarkText{Dec}  & \TWlightText{48} & \TWdarkText{26} & \TWdarkText{27} & \TWdarkText{28} & \TWdarkText{29} & \TWdarkText{30} & \TWhighlightDark{1}{c}{1} & \TWlightText{2}\\ \cline{3-7}
+ & \TWlightText{49} & \TWdarkText{3} & \TWdarkText{4} & \TWdarkText{5} & \TWdarkText{6} & \TWdarkText{7} & \TWlightText{8} & \TWlightText{9}\\
+ & \TWlightText{50} & \TWdarkText{10} & \TWdarkText{11} & \TWdarkText{12} & \TWdarkText{13} & \TWdarkText{14} & \TWlightText{15} & \TWlightText{16}\\
+ & \TWlightText{51} & \TWdarkText{17} & \TWdarkText{18} & \TWdarkText{19} & \TWdarkText{20} & \TWdarkText{21} & \TWlightText{22} & \TWlightText{23}\\
+ & \TWlightText{52} & \TWdarkText{24} & \TWdarkText{25} & \TWdarkText{26} & \TWdarkText{27} & \TWdarkText{28} & \TWlightText{29} & \TWlightText{30}\\ \cline{5-9}
+\TWdarkText{Jan}  & \TWlightText{1} & \TWdarkText{31} & \TWhighlightDark{1}{c}{1} & \TWdarkText{2} & \TWdarkText{3} & \TWdarkText{4} & \TWlightText{5} & \TWlightText{6}\\ \cline{3-3}
+\TWdarkText{'13}  & \TWlightText{2} & \TWdarkText{7} & \TWdarkText{8} & \TWdarkText{9} & \TWdarkText{10} & \TWdarkText{11} & \TWlightText{12} & \TWlightText{13}\\
+ & \TWlightText{3} & \TWdarkText{14} & \TWdarkText{15} & \TWdarkText{16} & \TWdarkText{17} & \TWdarkText{18} & \TWlightText{19} & \TWlightText{20}\\
+ & \TWlightText{4} & \TWdarkText{21} & \TWdarkText{22} & \TWdarkText{23} & \TWdarkText{24} & \TWdarkText{25} & \TWlightText{26} & \TWlightText{27}\\ \cline{8-9}
+\TWdarkText{Feb}  & \TWlightText{5} & \TWdarkText{28} & \TWdarkText{29} & \TWdarkText{30} & \TWdarkText{31} & \TWhighlightDark{1}{c}{1} & \TWlightText{2} & \TWlightText{3}\\ \cline{3-6}
+ & \TWlightText{6} & \TWdarkText{4} & \TWdarkText{5} & \TWdarkText{6} & \TWdarkText{7} & \TWdarkText{8} & \TWlightText{9} & \TWlightText{10}\\
+ & \TWlightText{7} & \TWdarkText{11} & \TWdarkText{12} & \TWdarkText{13} & \TWdarkText{14} & \TWdarkText{15} & \TWlightText{16} & \TWlightText{17}\\
+ & \TWlightText{8} & \TWdarkText{18} & \TWdarkText{19} & \TWdarkText{20} & \TWdarkText{21} & \TWdarkText{22} & \TWlightText{23} & \TWlightText{24}\\ \cline{8-9}
+\TWdarkText{Mar}  & \TWlightText{9} & \TWdarkText{25} & \TWdarkText{26} & \TWdarkText{27} & \TWdarkText{28} & \TWhighlightDark{1}{c}{1} & \TWlightText{2} & \TWlightText{3}\\ \cline{3-6}
+ & \TWlightText{10} & \TWdarkText{4} & \TWdarkText{5} & \TWdarkText{6} & \TWdarkText{7} & \TWdarkText{8} & \TWlightText{9} & \TWlightText{10}\\
+ & \TWlightText{11} & \TWdarkText{11} & \TWdarkText{12} & \TWdarkText{13} & \TWdarkText{14} & \TWdarkText{15} & \TWlightText{16} & \TWlightText{17}\\
+ & \TWlightText{12} & \TWdarkText{18} & \TWdarkText{19} & \TWdarkText{20} & \TWdarkText{21} & \TWdarkText{22} & \TWlightText{23} & \TWlightText{24}\\
+ & \TWlightText{13} & \TWdarkText{25} & \TWdarkText{26} & \TWdarkText{27} & \TWdarkText{28} & \TWdarkText{29} & \TWlightText{30} & \TWlightText{31}\\ \cline{4-9}
+\TWdarkText{Apr}  & \TWlightText{14} & \TWhighlightDark{1}{c}{1} & \TWdarkText{2} & \TWdarkText{3} & \TWdarkText{4} & \TWdarkText{5} & \TWlightText{6} & \TWlightText{7}\\
+ & \TWlightText{15} & \TWdarkText{8} & \TWdarkText{9} & \TWdarkText{10} & \TWdarkText{11} & \TWdarkText{12} & \TWlightText{13} & \TWlightText{14}\\
+ & \TWlightText{16} & \TWdarkText{15} & \TWdarkText{16} & \TWdarkText{17} & \TWdarkText{18} & \TWdarkText{19} & \TWlightText{20} & \TWlightText{21}\\
+ & \TWlightText{17} & \TWdarkText{22} & \TWdarkText{23} & \TWdarkText{24} & \TWdarkText{25} & \TWdarkText{26} & \TWlightText{27} & \TWlightText{28}\\ \cline{6-9}
+\TWhighlightMedium{9}{c}{36 weeks} \\
+\end{tabular}%
+} % end box location and/or rotation
+
+\TWstandardPageBox{16cm}{1.0cm}{2cm}{white}{%
+\TWmediumText{2012/08/14 19:51}
+} % end box location and/or rotation
+
+\TWstandardPageBox{0cm}{0.5cm}{19cm}{white}{%
+% Zero date in UTC format is  : 20120101T000000Z
+%    and in local time zone is: 2011/12/31 19:00
+\noindent\begin{chronology}[4]{-4}{32}{3ex}{19cm}
+\event{-1.7}{xxxxxxxxxx xxxxxxxx}
+\event{0.0}{xxxxxx xxxxxx xxxxxx xxxxxxxxx}
+\event{29.1}{xxxxx xxx xxxxxxxxx xxxxxxx xxxxxxxx}
+\event{29.1}{xxxxx xxx xxxxxx xxxx xxxxxxxxx xxxxxxxx}
+\event{14.7}{xxxxxx xxxx xxxxxxxxx xxxxxxxxx}
+\event{25.0}{xxxxx xxx xxxxxxxx xxxxxxxxxx xxxxxxxx}
+\event{30.4}{xxx xxxxx x xxxxx xxxx xxxxxxxxx}
+\event{29.4}{xxxxx xxx xxxxxxxxxx xxxxxxx xxxxxxxx}
+\event{23.9}{xxxxx xxx xxxxxxxx xxxxxx xxxxxxxxx xxxxxxxx}
+\event{20.6}{xxxxxxxxxxxxx xxxx xxxx xxxxxx}
+\event{3.4}{xxxxxxx xxxx xxx xxxxxxxxx}
+\event{5.1}{xxxxx xxxxx xxxxxxxxxxxxxx xxxxxxxxx}
+\end{chronology}
+
+} % end box location and/or rotation
+\end{document}

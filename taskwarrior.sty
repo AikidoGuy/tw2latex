@@ -1,0 +1,160 @@
+% TaskWarrior (http://taskwarrior.org) package
+% (c) Aikido Guy
+% LPPL LaTeX Public Project License
+%
+% Uses \rotatebox command from the graphicx package to invert two 
+% of the panels, and the textpos package to place the panels on 
+% the page.  
+% Standard sections to include (not necessarily in this order):
+%     Introduction
+%     Usage/Syntax/Examples
+%     Troubleshooting and Utilities
+%     Tips and related libraries/packages
+%     References and Index
+% 
+% Suggested sections (though not required):
+%     Table of Contents (depending on size of manual)
+%     Installation
+%     Implementation
+%
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{taskwarrior}[2012/02/16 TaskWarrior style package]
+\DeclareOption{showboxes}{\PassOptionsToPackage{showboxes}{textpos}}
+\ProcessOptions
+\RequirePackage[T1]{fontenc}
+\RequirePackage[absolute]{textpos}
+\RequirePackage{graphicx}
+\RequirePackage{calc}  % the dimension part (i.e., the part with the unit designation) must come first
+%                        calc also supports \widthof{text}, \heightof{}, \depthof{}, 
+\RequirePackage{array}
+\RequirePackage{multirow}
+\RequirePackage{url} % for \url{~something}  i.e. to get the tilde
+\RequirePackage{tabularx}
+\RequirePackage{colortbl}
+\RequirePackage[table]{xcolor}
+\RequirePackage{tikz}
+\RequirePackage{layouts} % to be able to use \prntlen{your dimension or length} 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% create new commands
+%
+\newcommand{\TWforegroundText}[1]{\color{white}{#1}}
+\newcommand{\TWboldForegroundText}[1]{\color{white}{\textbf{#1}}}
+\newcommand{\TWlightText}[1]{\color{black!15}{#1}}
+\newcommand{\TWmediumText}[1]{\color{black!50}{#1}}
+\newcommand{\TWdarkText}[1]{\color{black}{#1}}
+\newcommand{\TWhighlightLight}[3]{\multicolumn{#1}{#2}{\cellcolor{black!15}\TWforegroundText{#3}}}
+\newcommand{\TWhighlightLightBold}[3]{\multicolumn{#1}{#2}{\cellcolor{black!15}\TWboldForegroundText{#3}}}
+\newcommand{\TWhighlightMedium}[3]{\multicolumn{#1}{#2}{\cellcolor{black!50}\TWforegroundText{#3}}}
+\newcommand{\TWhighlightMediumBold}[3]{\multicolumn{#1}{#2}{\cellcolor{black!50}\TWboldForegroundText{#3}}}
+\newcommand{\TWhighlightDark}[3]{\multicolumn{#1}{#2}{\cellcolor{black}\TWforegroundText{#3}}}
+\newcommand{\TWhighlightDarkBold}[3]{\multicolumn{#1}{#2}{\cellcolor{black}\TWboldForegroundText{#3}}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Internals
+\newsavebox{\TWpanelContents}
+% width: \wd\TWpanelContents
+% height: \ht\TWpanelContents
+% depth: \dp\TWpanelContents
+
+\newlength{\TWwidth}
+\newlength{\TWlocationX}
+\newlength{\TWlocationY}
+%\setlength{\TWlocationX}{2cm}
+%\setlength{\TWlocationY}{2cm}
+%\prntlen{\TWlocationX}
+%\prntlen{\TWlocationY}
+
+% Set options on layouts package
+\printinunitsof{pt} % set default to pt units since we use them in textpos \prntlen{...}
+%\printinunitsof{cm}
+%\printinunitsof{mm}
+
+% From Donald Arseneau
+% Usage: \rawNumber\location
+\makeatletter \let\rawNumber\strip@pt \makeatother
+
+% Set options on tikz package
+\usetikzlibrary{shapes}
+\usetikzlibrary{calendar}
+
+% Set options on texpos package
+\setlength{\TPHorizModule}{1pt}                     % 1 module is 1pt
+\setlength{\TPVertModule}{\TPHorizModule}
+\textblockorigin{5mm}{5mm}                          % global co-ordinate system is top-left of page
+%\setlength{\TPHorizModule}{1mm}                    % 1 module is 1mm
+%\setlength{\TPVertModule}{\TPHorizModule}
+%\textblockorigin{5mm}{5mm} % global co-ordinate system is top-left of page
+
+% Set options on tabularx package
+\renewcommand{\tabularxcolumn}[1]{>{\small}m{#1}} % Use \parbox[c] instead of the default \parbox[t] in tabularx
+
+% set the default font
+\renewcommand{\rmdefault}{phv}   % Arial font
+\renewcommand{\sfdefault}{phv}   % Arial font
+
+
+% 1 = x location on the page (in any units)
+% 2 = y location on the page (in any units)
+% 3 = width of box to create (in any units)
+% 4 = background color of the box
+% 5 = item to put into the box
+%%%
+\newcommand{\TWstandardPageBox}[5]{%
+\setlength{\TWlocationX}{0pt + 5mm + #1}%
+\setlength{\TWlocationY}{0pt + 5mm + #2}%
+\setlength{\TWwidth}{0pt + #3}%
+\begin{textblock}{\rawNumber\TWwidth}(\rawNumber\TWlocationX,\rawNumber\TWlocationY)%
+\noindent\parbox[c]{\TWwidth}{\colorbox{#4}{\makebox[\TWwidth]{#5}}}%
+\end{textblock}%
+}
+%%%
+\newcommand{\TWstandardUpsideDownPageBox}[5]{%
+\setlength{\TWwidth}{0pt + #3}%
+\sbox{\TWpanelContents}{\parbox[t]{\TWwidth}{\colorbox{#4}{\makebox[\TWwidth]{#5}}}}%
+\setlength{\TWlocationX}{0pt + 5mm + #1}%
+\setlength{\TWlocationY}{0pt + 5mm + #2}%
+\begin{textblock}{\rawNumber\TWwidth}(\rawNumber\TWlocationX,\rawNumber\TWlocationY)%
+\noindent\rotatebox[origin=t]{180}{\usebox{\TWpanelContents}}%
+\end{textblock}%
+}
+%%%
+\newcommand{\TWfrontPageBox}[5]{%
+\setlength{\TWwidth}{0pt + #3}%
+\sbox{\TWpanelContents}{\parbox[t]{\TWwidth}{\colorbox{#4}{\makebox[\TWwidth]{#5}}}}%
+\setlength{\TWlocationX}{0pt + \paperwidth/2 - (#1) - \wd\TWpanelContents}%
+\setlength{\TWlocationY}{0pt + \paperheight/2 - (#2) - \ht\TWpanelContents}%
+\begin{textblock}{\rawNumber\TWwidth}(\rawNumber\TWlocationX,\rawNumber\TWlocationY)%
+\noindent\rotatebox[origin=t]{180}{\usebox{\TWpanelContents}}%
+\end{textblock}%
+}
+%%%
+\newcommand{\TWbackPageBox}[5]{%
+\setlength{\TWwidth}{0pt + #3}%
+\sbox{\TWpanelContents}{\parbox[t]{\TWwidth}{\colorbox{#4}{\makebox[\TWwidth]{#5}}}}%
+\setlength{\TWlocationX}{0pt + \paperwidth - 5mm - (#1) - \wd\TWpanelContents}%
+\setlength{\TWlocationY}{0pt + \paperheight/2 - (#2) - \ht\TWpanelContents}%
+\begin{textblock}{\rawNumber\TWwidth}(\rawNumber\TWlocationX,\rawNumber\TWlocationY)%
+\noindent\rotatebox[origin=t]{180}{\usebox{\TWpanelContents}}%
+\end{textblock}%
+}
+%%%
+\newcommand{\TWinsideBothPagesBox}[5]{%
+\setlength{\TWwidth}{0pt + #3}%
+\sbox{\TWpanelContents}{\parbox[t]{\TWwidth}{\colorbox{#4}{\makebox[\TWwidth]{#5}}}}%
+\setlength{\TWlocationX}{0pt + 5mm + (#2)}%
+\setlength{\TWlocationY}{0pt + \paperheight - (#1) - \wd\TWpanelContents}%
+\setlength{\TWwidth}{0pt + \ht\TWpanelContents}%
+\begin{textblock}{\rawNumber\TWwidth}(\rawNumber\TWlocationX,\rawNumber\TWlocationY)%
+\noindent\rotatebox[origin=t]{90}{\usebox{\TWpanelContents}}%
+\end{textblock}%
+}
+
+\AtBeginDocument{
+   \pagestyle{empty} % turn off page numbering
+}
+
+\endinput
+%%
+%% End of file `taskwarrior.sty'.
+

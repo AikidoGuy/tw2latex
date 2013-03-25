@@ -132,14 +132,14 @@ def getDateForISOWeekStartDate(year, week):
 def runTaskWarriorCommand(cmd):
    cmd = TASK_PROG + " rc.verbose=nothing " + cmd
    # Debugging
-   #sys.stdout.write("running: '" + cmd + "'\n")
+   #sys.stderr.write("running: '" + cmd + "'\n")
    ###
    os.system(cmd)
 
 def runTaskWarriorCommandAndCollectJSON(cmd):
    cmd = TASK_PROG + " rc.verbose=nothing rc.json.array=yes " + cmd
    # Debugging
-   #sys.stdout.write("running: '" + cmd + "'\n")
+   #sys.stderr.write("running: '" + cmd + "'\n")
    ###
    fin,fout = os.popen4(cmd)
    result   = fout.read()

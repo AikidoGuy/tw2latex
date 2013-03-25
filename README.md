@@ -17,12 +17,16 @@ Further information and discussion is available at: http://taskwarrior.org/board
 Dependencies
 ------------
 - python
+- python package pytz available from: http://pytz.sourceforge.net/
 - LaTeX
-- chronology.sty available at: http://www.ctan.org/pkg/chronology
+- chronology.sty available from: http://www.ctan.org/pkg/chronology
 
 List of Things to Improve
 -------------------------
-- [x] placed first version on github (2013/03/24)
+- [x] 2013/03/24: placed first version on github
+- [x] 2013/03/24: added 'createReport.sh' to show example usage for inclusion of filters. This occured because
+      during development of this code I needed to have one filter for the set of tasks and one filter
+      for the timeline. Anyway, this is how the current code works... slightly unexpectedly, I presume! :)
 - [ ] test with newest TaskWarrior release
 
 Suggestions for improvement are welcome.

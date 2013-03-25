@@ -14,6 +14,7 @@ Further information and discussion is available at: http://taskwarrior.org/board
     $ chmod 700 tw2latex.py
     $ ./tw2latex.py            # to get a list of all options
     $ cd examples
+    $ cp ../taskwarrior.sty .
     $ ./createReport.sh        # example to create a *.tex file from your tasks
 
 Dependencies

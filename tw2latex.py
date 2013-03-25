@@ -132,14 +132,14 @@ def getDateForISOWeekStartDate(year, week):
 def runTaskWarriorCommand(cmd):
    cmd = TASK_PROG + " rc.verbose=nothing " + cmd
    # Debugging
-   #sys.stderr.write("running: '" + cmd + "'\n")
+   sys.stderr.write("running: '" + cmd + "'\n")
    ###
    os.system(cmd)
 
 def runTaskWarriorCommandAndCollectJSON(cmd):
    cmd = TASK_PROG + " rc.verbose=nothing rc.json.array=yes " + cmd
    # Debugging
-   #sys.stderr.write("running: '" + cmd + "'\n")
+   sys.stderr.write("running: '" + cmd + "'\n")
    ###
    fin,fout = os.popen4(cmd)
    result   = fout.read()
@@ -266,12 +266,14 @@ def writeLatexStringInParModeToStdOut(stringToWrite,opts):
 
    for ii in range(len(stringToWrite)): # +1 because range doesn't include the end value
       if(opts.options["anonymize"]=="false"):
-         if(stringToWrite[ii]=='_'):
-            sys.stdout.write('\\')   # LaTeX needs to have underscores escaped unless in math mode (which we're not)
+         if(stringToWrite[ii]=='%'):  # LaTeX needs to have percents escaped
+            sys.stdout.write('\\')
+         if(stringToWrite[ii]=='_'):  # LaTeX needs to have underscores escaped unless in math mode (which we're not)
+            sys.stdout.write('\\')
          sys.stdout.write(stringToWrite[ii])
       if(opts.options["anonymize"]=="true"):
-         if(stringToWrite[ii]==" "):
-            sys.stdout.write(" ") # keep spaces so that correct wrapping will still occur
+         if(stringToWrite[ii]==" "): # keep spaces so that correct wrapping will still occur
+            sys.stdout.write(" ")
          else:
             sys.stdout.write("x")
    return
@@ -347,7 +349,12 @@ def printLatexTasks(opts,jsonObjForTasks):
    #if(opts.options["tasksSummary"]=="none"):
    #  do nothing
    if(opts.options["tasksSummary"]=="filter"):
-      print opts.taskfilter
+      #print opts.taskfilter 2013/03/24: old way using items before "export"
+      # print opts.options["tasksFilter"]
+      before = opts.options["anonymize"]
+      opts.options["anonymize"] = "false"
+      writeLatexStringInParModeToStdOut(opts.options["tasksFilter"],opts)
+      opts.options["anonymize"] = before
    if(opts.options["tasksSummary"]=="count"):
       print str(len(jsonObjForTasks)) + " tasks"
    print "} \\tabularnewline"

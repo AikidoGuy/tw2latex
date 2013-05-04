@@ -14,8 +14,8 @@ Further information and discussion is available at: http://taskwarrior.org/board
     $ chmod 700 tw2latex.py
     $ ./tw2latex.py            # to get a list of all options
     $ cd examples
-    $ cp ../taskwarrior.sty .
-    $ ./createReport.sh        # example to create a *.tex file from your tasks
+    $ vi createReport.sh       # and modify to suit your needs (e.g. change filter, etc.)
+    $ ./createReport.sh        # to create *.tex and *.pdf based on your settings
 
 Dependencies
 ------------
@@ -26,6 +26,7 @@ Dependencies
 
 List of Things to Improve
 -------------------------
+- [X] 2013/05/03: make simple filter usage work; use filter overrides for more complex cases
 - [X] 2013/03/24: placed first version on github
 - [X] 2013/03/24: added 'createReport.sh' to show example usage for inclusion of filters. This occured because
       during development of this code I needed to have one filter for the set of tasks and one filter

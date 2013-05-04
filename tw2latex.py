@@ -154,8 +154,9 @@ class CmdLineOptions(object):
       sys.stderr.write("\n")
       sys.stderr.write("Usage:\n")
       sys.stderr.write("\n")
-      sys.stderr.write("tw2latex export [options]\n")
+      sys.stderr.write("tw2latex [filter] export [options]\n")
       sys.stderr.write("  -collect the tasks from TaskWarrior\n")
+      sys.stderr.write("  [filter] will assign values for tasksFilter and timelineFilter\n")
       sys.stderr.write("  [options] may be:\n")
       sys.stderr.write("     anonymize:X         # X=true or X=false\n")
       sys.stderr.write("                         # default is anonymize:" + DEFAULT_ANONYMIZE + "\n")
@@ -167,6 +168,8 @@ class CmdLineOptions(object):
       sys.stderr.write("                         # default is page:X    tasks:" + DEFAULT_TASKS_PAGE + "\n")
       sys.stderr.write("                         #            booklet:X tasks:" + DEFAULT_TASKS_BOOKLET + "\n")
       sys.stderr.write("     tasksFilter:X       # filter for tasks creation\n")
+      sys.stderr.write("                         # default is [filter] specified before export\n")
+      sys.stderr.write("                         # if X is specified, then it will overide the default\n")
       sys.stderr.write("     tasksWidth:{Xcm}    # width to use for tasks\n")
       sys.stderr.write("                         # default is page:X    tasksWidth:" + DEFAULT_TASKS_WIDTH_PAGE + "\n")
       sys.stderr.write("                         # default is booklet:X tasksWidth:" + DEFAULT_TASKS_WIDTH_BOOKLET + "\n")
@@ -189,6 +192,8 @@ class CmdLineOptions(object):
       sys.stderr.write("     timeline:{Xcm}{Ycm} # create a timeline at location X,Y\n")
       sys.stderr.write("                         # default is timeline:" + DEFAULT_TIMELINE_PAGE + "\n")
       sys.stderr.write("     timelineFilter:X    # filter for timeline creation\n")
+      sys.stderr.write("                         # default is [filter] specified before export\n")
+      sys.stderr.write("                         # if X is specified, then it will overide the default\n")
       sys.stderr.write("     timelineZeroDate:X  # 0 on timeline has this date\n")
       sys.stderr.write("                         # default is timelineZeroDate:" + DEFAULT_TIMELINE_ZERODATE + "\n")
       sys.stderr.write("     timelineStartDate:X # smallest value on timeline has this date\n")
@@ -208,7 +213,7 @@ class CmdLineOptions(object):
          self.cmd    = "export"
          self.cmdIdx = argv.index(self.cmd)
          # get the filter for the command
-         #self.taskfilter = string.join(argv[0:self.cmdIdx])
+         self.defaultfilter = string.join(argv[0:self.cmdIdx])
          ## print len(argv)-1 
          ## print self.cmdIdx+2
          ## print "blah"
@@ -550,12 +555,17 @@ def main(argv):
       opts = CmdLineOptions(argv)
       jsonObjForTasks    = []
       jsonObjForTimeline = []
-      if("tasksFilter" in opts.options):
+
+      # set default filters if not already set
+      if("tasks" in opts.options):
+         if("tasksFilter" not in opts.options):
+            opts.options["tasksFilter"]=opts.defaultfilter
          jsonObjForTasks = runTaskWarriorCommandAndCollectJSON(replaceFilterChar(opts.options["tasksFilter"]) + " export")
-      if("timelineFilter" in opts.options):
+      if("timeline" in opts.options):
+         if("timelineFilter" not in opts.options):
+            opts.options["timelineFilter"]=opts.defaultfilter
          jsonObjForTimeline = runTaskWarriorCommandAndCollectJSON(replaceFilterChar(opts.options["timelineFilter"]) + " export")
-      else:
-         jsonObjForTimeline = runTaskWarriorCommandAndCollectJSON(" export")
+
       if(opts.cmd=="export"):
          # set up global defaults
          if("calendarMonth" not in opts.options):

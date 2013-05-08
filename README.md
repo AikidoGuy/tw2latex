@@ -16,13 +16,16 @@ Further information and discussion is available at: http://taskwarrior.org/board
     $ cd examples
     $ vi createReport.sh       # and modify to suit your needs (e.g. change filter, etc.)
     $ ./createReport.sh        # to create *.tex and *.pdf based on your settings
+                               # uses chronology.sty if a timeline is selected
 
 Dependencies
 ------------
 - python
-- python package pytz available from: http://pytz.sourceforge.net/
-- LaTeX (http://www.latex-project.org/guides/)
-- chronology.sty available from: http://www.ctan.org/pkg/chronology
+- python package pytz                 # See: http://pytz.sourceforge.net/
+- python package dateutil             # On Ubuntu: sudo apt-get install python-dateutil
+- LaTeX                               # See: http://www.latex-project.org/guides/
+- chronology.sty                      # See: http://www.ctan.org/pkg/chronology
+  (This is a LaTeX 'sty'le file and should be placed in the same directory as the generated LaTeX file *.tex)
 
 List of Things to Improve
 -------------------------

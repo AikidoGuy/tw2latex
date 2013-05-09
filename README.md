@@ -1,10 +1,7 @@
 tw2latex
 ========
 
-Task Warrior to LaTeX python utility.
-
-This is being made available sooner that I was planning because I received an email request
-for it. Please be aware that it is a work in progress.
+Task Warrior to LaTeX python utility. A little rough around the edges... but smoothing things out slowly :)
 
 Usage
 -----
@@ -110,6 +107,108 @@ LaTeX on Ubuntu
     $ sudo apt-get install kile
     #
     # I have now run the 'createReport.sh' using my new latex environment on Ubuntu and everything works
+
+To Update LaTeX Packages on Ubuntu
+----------------------------------
+Here is an example that I used to update all of my packages to the latest versions today (8th May 2013):
+$ sudo `which tlmgr` update --all
+TeX Live 2012 is frozen forever and will no
+longer be updated.  This happens in preparation for a new release.
+
+If you're interested in helping to pretest the new release (when
+pretests are available), please read http://tug.org/texlive/pretest.html.
+Otherwise, just wait, and the new release will be ready in due time.
+tlmgr: package repository http://ctan.mirror.rafal.ca/systems/texlive/tlnet
+tlmgr: saving backups to /usr/local/texlive/2012/tlpkg/backups
+[ 1/80] auto-remove: macqassign ... done
+[ 2/80, ??:??/??:??] update: abntex2 [3523k] (29221 -> 29502) ... done
+[ 3/80, 00:14/10:26] update: acro [509k] (29073 -> 29681) ... done
+[ 4/80, 00:16/10:26] update: amsaddr [196k] (15878 -> 29630) ... done
+[ 5/80, 00:18/11:11] update: biblatex-caspervector [268k] (28808 -> 29577) ... done
+[ 6/80, 00:20/11:41] update: biblatex-fiwi [522k] (28491 -> 29578) ... done
+[ 7/80, 00:23/12:03] update: biblatex-philosophy [503k] (29411 -> 29571) ... done
+[ 8/80, 00:26/12:23] update: bidi [1130k] (28144 -> 29650) ... done
+[ 9/80, 00:29/11:27] update: chronology [15k] (18994 -> 29682) ... done
+[10/80, 00:31/12:13] update: cleveref [470k] (27807 -> 29503) ... done
+[11/80, 00:34/12:31] update: cm [238k] (24956 -> 29581) ... done
+[12/80, 00:36/12:50] update: crbox [31k] (24414 -> 29701) ... done
+[13/80, 00:37/13:08] update: dashrule [233k] (15878 -> 29579) ... done
+[14/80, 00:39/13:25] update: dowith [1192k] (28401 -> 29501) ... done
+[15/80, 00:43/12:48] update: dvips [581k] (28616 -> 29585) ... done
+[16/80, 00:45/12:34] update: embrac [445k] (29483 -> 29683) ... done
+[17/80, 00:47/12:32] update: endiagram [669k] (27489 -> 29684) ... done
+[18/80, 00:50/12:29] update: enotez [443k] (29422 -> 29696) ... done
+[19/80, 00:52/12:28] update: environ [150k] (15878 -> 29600) ... done
+[20/80, 00:53/12:32] update: etoc [301k] (29289 -> 29697) ... done
+[21/80, 00:56/12:54] update: exsheets [733k] (29334 -> 29685) ... done
+[22/80, 00:58/12:33] update: filedate [559k] (28242 -> 29529) ... done
+[23/80, 01:00/12:25] update: fontawesome [171k] (29485 -> 29498) ... done
+[24/80, 01:02/12:39] update: fouriernc [49k] (15878 -> 29646) ... done
+[25/80, 01:03/12:49] update: ftnxtra [28k] (17317 -> 29652) ... done
+[26/80, 01:04/12:59] update: ghab [29k] (24578 -> 29701) ... done
+[27/80, 01:09/13:58] update: hyph-utf8 [1948k] (29193 -> 29641) ... done
+[28/80, 01:13/12:51] update: iftex [32k] (18833 -> 29654) ... done
+[29/80, 01:15/13:10] update: imakeidx [512k] (28240 -> 29542) ... done
+[30/80, 01:16/12:54] update: imsproc [71k] (26198 -> 29701) ... done
+[31/80, 01:19/13:21] update: media9 [4634k] (29445 -> 29530) ... done
+[32/80, 01:23/10:48] update: mpgraphics [165k] (27230 -> 29655) ... done
+[33/80, 01:25/10:59] update: nameauth [682k] (29359 -> 29632) ... done
+[34/80, 01:27/10:52] update: needspace [158k] (19684 -> 29601) ... done
+[35/80, 01:30/11:10] update: newtx [3869k] (29152 -> 29551) ... done
+[36/80, 01:47/11:13] update: paratype [4788k] (26866 -> 29629) ... done
+[37/80, 01:58/10:23] update: pdftex [2805k] (29349 -> 29585) ... done
+[38/80, 05:25/26:10] update: persian-hm-ftx [32015k] (29146 -> 29700) ... done
+[39/80, 09:06/22:11] update: persian-hm-xbs [31801k] (29147 -> 29616) ... done
+[40/80, 09:45/15:56] update: persian-modern [1950k] (23959 -> 29701) ... done
+[41/80, 09:56/15:55] update: pgfplots [10547k] (29349 -> 29531) ... done
+[42/80, 10:03/14:32] update: pkuthss [385k] (28865 -> 29580) ... done
+[43/80, 10:11/14:41] update: pstricks [7204k] (29482 -> 29678) ... done
+[44/80, 10:21/14:00] update: regexpatch [532k] (27155 -> 29543) ... done
+[45/80, 10:23/13:59] update: roundbox [3k] (17896 -> 29675) ... done
+[46/80, 10:24/14:00] update: sansmathaccent [164k] (26200 -> 29541) ... done
+[47/80, 10:26/14:02] update: smartdiagram [276k] (29329 -> 29680) ... done
+[48/80, 10:28/14:02] update: splitindex.x86_64-linux [1k] (12613 -> 29688) ... done
+[49/80, 10:29/14:04] update: splitindex [456k] (29349 -> 29688) ... done
+[50/80, 10:31/14:03] update: tetex [379k] (29349 -> 29585) ... done
+[51/80, 10:35/14:06] update: texlive-docindex [196k] (29478 -> 29691) ... done
+[52/80, 10:37/14:07] update: texlive-scripts [69k] (29405 -> 29676) ... done
+[53/80, 10:38/14:08] update: tikzscale [541k] (29342 -> 29569) ... done
+[54/80, 10:41/14:08] update: tikzsymbols [550k] (29308 -> 29570) ... done
+[55/80, 10:44/14:08] update: toptesi [2439k] (29321 -> 29550) ... done
+[56/80, 10:50/13:59] update: tram [31k] (24395 -> 29701) ... done
+[57/80, 10:51/14:00] update: unamthesis [546k] (22500 -> 29519) ... done
+[58/80, 10:54/14:00] update: upmethodology [447k] (27896 -> 29615) ... done
+[59/80, 10:55/13:58] auto-install: biblatex-gost (29663) [871k] ... done
+[60/80, 10:57/13:55] auto-install: cjk-ko (29516) [2666k] ... done
+[61/80, 11:00/13:41] auto-install: download (29588) [175k] ... done
+[62/80, 11:00/13:40] auto-install: iitem (29613) [377k] ... done
+[63/80, 11:01/13:39] auto-install: matc3 (29698) [436k] ... done
+[64/80, 11:02/13:37] auto-install: matc3mem (29699) [392k] ... done
+[65/80, 11:03/13:36] auto-install: nanumtype1 (29558) [27664k] ... done
+[66/80, 11:21/11:29] auto-install: newpx (29576) [893k] ... done
+[67/80, 11:23/11:27] auto-install: readarray (29614) [185k] ... done
+[68/80, 11:23/11:26] auto-install: skdoc (29544) [207k] ... done
+[69/80, 11:24/11:27] auto-install: skmath (29607) [220k] ... done
+[70/80, 11:25/11:27] auto-install: skrapport (29608) [184k] ... done
+[71/80, 11:26/11:27] auto-install: xint (29649) [279k] ... done
+[72/80, 11:28/11:28] update: collection-bibtexextra [1k] (28717 -> 29517) ... done
+[73/80, 11:29/11:29] update: collection-fontsextra [2k] (29485 -> 29576) ... done
+[74/80, 11:30/11:30] update: collection-langarabic [1k] (29147 -> 29659) ... done
+[75/80, 11:31/11:31] update: collection-langcjk [1k] (29335 -> 29552) ... done
+[76/80, 11:31/11:31] update: collection-latexextra [5k] (29447 -> 29651) ... done
+[77/80, 11:32/11:32] update: collection-mathextra [1k] (28513 -> 29607) ... done
+[78/80, 11:33/11:33] update: collection-metapost [1k] (29358 -> 29655) ... done
+[79/80, 11:34/11:34] update: collection-pictures [1k] (29264 -> 29595) ... done
+[80/80, 11:34/11:34] update: collection-publishers [1k] (29466 -> 29687) ... done
+tlmgr: package log updated at /usr/local/texlive/2012/texmf-var/web2c/tlmgr.log
+running mktexlsr ...
+done running mktexlsr.
+running updmap-sys ...
+done running updmap-sys.
+regenerating fmtutil.cnf in /usr/local/texlive/2012/texmf-var
+running fmtutil-sys --no-error-if-no-format --byengine pdftex ...
+done running fmtutil-sys --no-error-if-no-format --byengine pdftex.
+
 
 Suggestions for improvement are welcome.
 

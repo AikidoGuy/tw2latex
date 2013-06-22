@@ -1,7 +1,7 @@
 tw2latex
 ========
 
-Task Warrior to LaTeX python utility. A little rough around the edges... but smoothing things out slowly :)
+Taskwarrior to LaTeX python utility. A little rough around the edges... but smoothing things out slowly :)
 
 Usage
 -----
@@ -36,7 +36,7 @@ List of Things to Improve
       during development of this code I needed to have one filter for the set of tasks and one filter
       for the timeline. Anyway, this is how the current code works... slightly unexpectedly, I presume! :)
 - [X] 2013/03/24: learn how to use LaTeX on Ubuntu https://help.ubuntu.com/community/LaTeX (I originally developed this code using MikTex on Windows).
-- [X] 2013/03/24: test with newest TaskWarrior (works with 2.1.2 on Ubuntu)
+- [X] 2013/03/24: test with newest Taskwarrior (works with 2.1.2 on Ubuntu)
 
 LaTeX on Ubuntu
 ---------------
